@@ -80,6 +80,9 @@ public final class FitnessFunction {
             return Solutions[BestSolutionId];
     }
 
+    /**
+     * @return the average fitness score
+     */
     public double getAVG() {
         return AvgFitness;
     }
