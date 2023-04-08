@@ -177,7 +177,6 @@ public class GeneticOptimizer extends Feasibility implements CommonFunctions {
         FN.DisplayBestSubGraph();
     }
 
-
     /**
      * This class is used as a container for vectors seolutions and their fitness scores
      */
