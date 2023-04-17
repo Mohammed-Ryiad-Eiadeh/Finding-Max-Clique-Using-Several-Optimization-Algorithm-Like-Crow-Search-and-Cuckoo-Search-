@@ -40,7 +40,7 @@ public class Feasibility {
      * @param Solution refers to a feasible solution
      * @return return the evolved feasible solution
      *//*
-    public double[] EvolveSolution(double[] Solution) {
+    private double[] EvolveSolution(double[] Solution) {
         var Flag = true;
         for (var i = 0; i < Solution.length; i++)
             if (Solution[i] == 0.0) {
