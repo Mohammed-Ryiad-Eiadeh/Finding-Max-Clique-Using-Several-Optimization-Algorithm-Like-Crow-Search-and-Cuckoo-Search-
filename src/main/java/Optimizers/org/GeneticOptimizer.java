@@ -74,12 +74,10 @@ public class GeneticOptimizer extends Feasibility
     private void Selectin_based_roulette_wheel() {
         for (double[] solution : solutions)
             listOfSolutionsAndFitness.add(new chromosome_fitness_Container(solution, FN.EvaluateSingleSolution(solution)));
-
         listOfSolutionsAndFitness.sort(Comparator.comparing(chromosome_fitness_Container::FitnessScore).reversed());
-
+        
         for (var i = 0; i < solutionsSizeForSelecting; i++)
             System.arraycopy(listOfSolutionsAndFitness.get(i).Solution, 0, solutions[i], 0, solutions[0].length);
-
         for (var i = solutionsSizeForSelecting + 1; i < solutions.length; i++)
             System.arraycopy(listOfSolutionsAndFitness.get(new Random().nextInt(solutionsSizeForSelecting)).Solution, 0, solutions[i], 0, solutions[0].length);
 
@@ -124,7 +122,6 @@ public class GeneticOptimizer extends Feasibility
     private void Mutation() {
         for (int i = 0; i < solutions.length; i++) {
             double[] MutedSolution = super.GuaranteeFeasibility(Arrays.stream(solutions[i]).map(x -> new Random().nextDouble() < mutationRate ? 1 - x : x).toArray());
-
             if (FN.EvaluateSingleSolution(MutedSolution) > FN.EvaluateSingleSolution(solutions[i]))
                 solutions[i] = MutedSolution;
         }
