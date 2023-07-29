@@ -35,6 +35,7 @@ public class Plot {
         arr[4][0] = avgFitness;
         arr[5][0] = avgFitness;
         arr[6][0] = avgFitness;
+        arr[7][0] = avgFitness;
 
         System.arraycopy(Arrays.stream(listOfFitnessesSeries.get(0)).mapToDouble(i -> i).toArray(), 0, arr[0], 1, listOfFitnessesSeries.get(0).length);
         System.arraycopy(Arrays.stream(listOfFitnessesSeries.get(1)).mapToDouble(i -> i).toArray(), 0, arr[1], 1, listOfFitnessesSeries.get(1).length);
@@ -43,6 +44,7 @@ public class Plot {
         System.arraycopy(Arrays.stream(listOfFitnessesSeries.get(4)).mapToDouble(i -> i).toArray(), 0, arr[4], 1, listOfFitnessesSeries.get(4).length);
         System.arraycopy(Arrays.stream(listOfFitnessesSeries.get(5)).mapToDouble(i -> i).toArray(), 0, arr[5], 1, listOfFitnessesSeries.get(5).length);
         System.arraycopy(Arrays.stream(listOfFitnessesSeries.get(6)).mapToDouble(i -> i).toArray(), 0, arr[6], 1, listOfFitnessesSeries.get(6).length);
+        System.arraycopy(Arrays.stream(listOfFitnessesSeries.get(7)).mapToDouble(i -> i).toArray(), 0, arr[7], 1, listOfFitnessesSeries.get(7).length);
 
         Chart.addSeries("BCS", IntStream.range(0, maxIteration + 1).parallel().asDoubleStream().toArray(), arr[0]);
         Chart.addSeries("BCSA", IntStream.range(0, maxIteration + 1).parallel().asDoubleStream().toArray(), arr[1]);
@@ -51,6 +53,7 @@ public class Plot {
         Chart.addSeries("IBCSA-BJAYA", IntStream.range(0, maxIteration + 1).parallel().asDoubleStream().toArray(), arr[4]);
         Chart.addSeries("IBCSA-BCS", IntStream.range(0, maxIteration + 1).parallel().asDoubleStream().toArray(), arr[5]);
         Chart.addSeries("GA", IntStream.range(0, maxIteration + 1).parallel().asDoubleStream().toArray(), arr[6]);
+        Chart.addSeries("IBCSA-GA", IntStream.range(0, maxIteration + 1).parallel().asDoubleStream().toArray(), arr[7]);
     }
 
     /**
