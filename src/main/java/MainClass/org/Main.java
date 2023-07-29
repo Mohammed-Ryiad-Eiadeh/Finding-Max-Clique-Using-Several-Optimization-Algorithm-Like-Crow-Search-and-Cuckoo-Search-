@@ -11,12 +11,14 @@ import Optimizers.org.GeneticOptimizer;
 import Optimizers.org.JayaOptimizer;
 import Population.org.Population;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static java.lang.System.out;
 
-/**<li>the main class</li>*/
-
+/**
+ * <li>the main class</li>
+ * */
 public class Main {
     public static void main(String ...args) {
         // read the dataset, display the graph,and construct the graph
@@ -179,11 +181,37 @@ public class Main {
         CrowCuckooOptimizer.IBCSA_BCSStartOptimization();
 
         // display the performance of IBCSA-BCS algorithm
-        out.println("The evaluation summary of the IBCSA-BCS optimizer :" + "\n" +
+        out.println("The evaluation summary of the IBCSA-BCA optimizer :" + "\n" +
                 "Optimization process took : " + CrowCuckooOptimizer.GetOptimizationTime());
         CrowCuckooOptimizer.DisplayPerformanceSummary();
         // display the solution based the IBCSA-BCS algorithm
-        CrowCuckooOptimizer.DisplayBestSolution();
+        // CrowCuckooOptimizer.DisplayBestSolution();
+
+
+        // use the Hybrid IBCSA-BGA optimizer
+        var CrowGeneticOptimizer = new CrowOptimizer(HoldGraph,
+                InitialSolutions,
+                TransferFunction.V2,
+                2,
+                0.1,
+                2,
+                new GeneticOptimizer(HoldGraph,
+                        InitialSolutions,
+                        0.8,
+                        0.7,
+                        0.2,
+                        100),
+                MaxIteration);
+
+        // Start the optimization process
+        CrowGeneticOptimizer.IBCSA_BGAStartOptimization();
+
+        // display the performance of IBCSA-BGA algorithm
+        out.println("The evaluation summary of the IBCSA-BGA optimizer :" + "\n" +
+                "Optimization process took : " + CrowGeneticOptimizer.GetOptimizationTime());
+        CrowGeneticOptimizer.DisplayPerformanceSummary();
+        // display the solution based the IBCSA-BGA algorithm
+        // CrowGeneticOptimizer.DisplayBestSolution();
         System.gc();
 
         // Plot the IBCrow performance
@@ -195,6 +223,7 @@ public class Main {
             add(CrowJayaOptimizer.getAvgFitnessSeries());
             add(CrowCuckooOptimizer.getAvgFitnessSeries());
             add(GeneticOptimizer.getAvgFitnessSeries());
+            add(CrowGeneticOptimizer.getAvgFitnessSeries());
         }};
         new Plot(MaxIteration, ConvergenceCurves, FN.getAVG() / population.Size()).show();
     }
