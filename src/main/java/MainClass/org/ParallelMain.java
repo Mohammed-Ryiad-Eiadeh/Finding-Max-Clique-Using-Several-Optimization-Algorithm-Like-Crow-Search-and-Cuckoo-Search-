@@ -204,11 +204,39 @@ public class ParallelMain {
             return "IBCSA-BCS is done";
         };
 
+        Callable<String> C8 = () -> {
+            // use the Hybrid IBCSA-BGA optimizer
+            var CrowGeneticOptimizer = new CrowOptimizer(HoldGraph,
+                    InitialSolutions,
+                    TransferFunction.V2,
+                    2,
+                    0.1,
+                    2,
+                    new GeneticOptimizer(HoldGraph,
+                            InitialSolutions,
+                            0.8,
+                            0.7,
+                            0.2,
+                            100),
+                    MaxIter);
+
+            // Start the optimization process
+            CrowGeneticOptimizer.IBCSA_BGAStartOptimization();
+
+            // display the performance of IBCSA-BGA algorithm
+            out.println("The evaluation summary of the IBCSA-BGA optimizer :" + "\n" +
+                    "Optimization process took : " + CrowGeneticOptimizer.GetOptimizationTime());
+            CrowGeneticOptimizer.DisplayPerformanceSummary();
+            // display the solution based the IBCSA-BGA algorithm
+            // CrowGeneticOptimizer.DisplayBestSolution();
+            return "IBCSA-BGA is done";
+        };
+
         // create an executor service with a pool of threads
         // submit all callables to the threads in the pool
         var executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
         var STime = System.currentTimeMillis();
-        var SubmitCalls = executorService.invokeAll(List.of(C1, C2, C3, C4, C5, C6, C7));
+        var SubmitCalls = executorService.invokeAll(List.of(C1, C2, C3, C4, C5, C6, C7, C8));
         var FTime = System.currentTimeMillis();
 
         // get the results
@@ -223,4 +251,3 @@ public class ParallelMain {
         executorService.shutdown();
     }
 }
-
