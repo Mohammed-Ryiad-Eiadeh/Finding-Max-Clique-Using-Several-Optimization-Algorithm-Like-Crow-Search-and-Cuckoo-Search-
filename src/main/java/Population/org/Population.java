@@ -60,8 +60,9 @@ public final class Population extends Feasibility {
             for (double[] doubles : population) {
                 Opposite = Arrays.stream(doubles).map(ii -> 1 - ii).parallel().toArray();
                 feasible = GuaranteeFeasibility(Opposite);
-                if (FN.EvaluateSingleSolution(feasible) > FN.EvaluateSingleSolution(doubles))
+                if (FN.EvaluateSingleSolution(feasible) > FN.EvaluateSingleSolution(doubles)) {
                     System.arraycopy(feasible, 0, doubles, 0, feasible.length);
+                }
             }
         return this;
     }
