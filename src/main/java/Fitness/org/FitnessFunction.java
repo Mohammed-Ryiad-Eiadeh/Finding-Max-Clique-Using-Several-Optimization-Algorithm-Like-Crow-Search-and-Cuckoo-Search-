@@ -107,17 +107,14 @@ public final class FitnessFunction {
     public void ShowEvaluationSummary() {
         System.out.printf("Maximum fitness is : %s\nMinimum fitness is : %s\nAverage fitness is : %s",
                 maxFitness, minFitness, avgFitness / (double) solutions.length);
-
         System.out.print("\nThe best current solution contains these vertices : ");
         for (int i = 0; i < solutions[bestSolutionId].length; i++)
             if (solutions[bestSolutionId][i] == 1)
                 System.out.print(i + 1 + "\t");
-
         System.out.print("\nThe worst current solution contains these vertices : ");
         for (int i = 0; i < solutions[worstSolutionId].length; i++)
             if (solutions[worstSolutionId][i] == 1)
                 System.out.print(i + 1 + "\t");
-
         System.out.println("\n");
     }
 
