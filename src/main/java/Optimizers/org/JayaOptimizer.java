@@ -46,7 +46,7 @@ public class JayaOptimizer extends Feasibility
      * This method used to start the searching and optimization method for the current population
      */
     public void StartOptimization() {
-        var startTime = System.currentTimeMillis();
+        long startTime = System.currentTimeMillis();
         for (int iter = 0; iter < maxIteration; iter++) {
             for (double[] solution : solutions) {
                 // apply JAYA operator on each solution
@@ -64,7 +64,7 @@ public class JayaOptimizer extends Feasibility
             bestSolution = FN.getBestSolution();
             avgFitness[iter] = FN.getAVG() / solutions.length;
         }
-        var endTime = System.currentTimeMillis();
+        long endTime = System.currentTimeMillis();
         optimizationTime = endTime - startTime;
     }
 
