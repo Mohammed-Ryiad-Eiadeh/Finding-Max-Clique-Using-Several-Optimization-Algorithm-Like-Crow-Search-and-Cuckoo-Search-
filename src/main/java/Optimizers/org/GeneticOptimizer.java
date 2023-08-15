@@ -57,7 +57,6 @@ public class GeneticOptimizer extends Feasibility
             Crossover_1Point_Based();
             // apply mutation
             Mutation();
-
             FN = new FitnessFunction(solutions);
             FN.EvaluateAllSolution();
             worstSolution = FN.getWorstSolution();
@@ -72,14 +71,16 @@ public class GeneticOptimizer extends Feasibility
      * Applys roulette wheel method in order to select the best amount of solutions based on some proportion
      */
     private void Selectin_based_roulette_wheel() {
-        for (double[] solution : solutions)
+        for (double[] solution : solutions) {
             listOfSolutionsAndFitness.add(new chromosome_fitness_Container(solution, FN.EvaluateSingleSolution(solution)));
+        }
         listOfSolutionsAndFitness.sort(Comparator.comparing(chromosome_fitness_Container::FitnessScore).reversed());
-        for (int i = 0; i < solutionsSizeForSelecting; i++)
+        for (int i = 0; i < solutionsSizeForSelecting; i++) {
             System.arraycopy(listOfSolutionsAndFitness.get(i).Solution, 0, solutions[i], 0, solutions[0].length);
-        for (int i = solutionsSizeForSelecting + 1; i < solutions.length; i++)
+        }
+        for (int i = solutionsSizeForSelecting + 1; i < solutions.length; i++) {
             System.arraycopy(listOfSolutionsAndFitness.get(new Random().nextInt(solutionsSizeForSelecting)).Solution, 0, solutions[i], 0, solutions[0].length);
-
+        }
         listOfSolutionsAndFitness.clear();
     }
 
