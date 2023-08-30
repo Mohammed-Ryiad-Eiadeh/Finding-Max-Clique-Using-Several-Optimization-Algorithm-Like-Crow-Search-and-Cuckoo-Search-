@@ -1,5 +1,15 @@
-# Finding-Max-Clique-Using-Several-Optimization-Algorithm-Like-Crow-Search-and-Cuckoo-Search.
-This repository is about utilizing several evolutionary optimization algorithms to solve max clique problem;
-Crow Search, Cuckoo Search, Jaya, and Genetic algorithm.
-Extraxt the "DataSets" .rar file in the directory of your src file to make it works.
+# Max clique is a common combinatorial problem demonstrates the 
+largest complete subgraph on network structures. Max clique is an NP-Complete 
+problem, which means solving it using exact algorithm is very expensive. 
+Approximation algorithms have proved that they could achieve reasonable 
+solutions. This paper proposed a novel approach based on Crow Search and Jaya 
+algorithms called Improved Binary Cuckoo Search Algorithm (BHA) with 
+Binary Jaya Optimizer (JO) called (IBCSA-BJO) to solve this problem. IBCSABJO includes Opposition-Based Learning, transfer functions, Lévy flight, 
+mutation, Xor, 1-point crossover, repairing method, and the fitness function. The 
+improvement techniques were used to improve the initial population diversity, 
+improve the searching capabilities and to a void the trap of local optima. Transfer 
+functions was used to convert the continuous values to binary ones. Repairing
+method was used to fix the infeasible solutions. The Performance of IBCSA-BJO
+has been evaluated over a set of benchmark problems and shown that it can be a 
+good alternative for the proposed state-of-the-art approaches.
 
