@@ -1,4 +1,6 @@
-# Max clique is a common combinatorial problem demonstrates the 
+# This is a repository of two research papers about finding the max clique in dense graphs.
+
+Max clique is a common combinatorial problem demonstrates the 
 largest complete subgraph on network structures. Max clique is an NP-Complete 
 problem, which means solving it using exact algorithm is very expensive. 
 Approximation algorithms have proved that they could achieve reasonable 
