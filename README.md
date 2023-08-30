@@ -4,7 +4,7 @@ problem, which means solving it using exact algorithm is very expensive.
 Approximation algorithms have proved that they could achieve reasonable 
 solutions. This paper proposed a novel approach based on Crow Search and Jaya 
 algorithms called Improved Binary Cuckoo Search Algorithm (BHA) with 
-Binary Jaya Optimizer (JO) called (IBCSA-BJO) to solve this problem. IBCSABJO includes Opposition-Based Learning, transfer functions, Lévy flight, 
+Binary Jaya Optimizer (JO) called (IBCSA-BJO) to solve this problem. IBCSA-BJO includes Opposition-Based Learning, transfer functions, Lévy flight, 
 mutation, Xor, 1-point crossover, repairing method, and the fitness function. The 
 improvement techniques were used to improve the initial population diversity, 
 improve the searching capabilities and to a void the trap of local optima. Transfer 
