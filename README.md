@@ -14,3 +14,6 @@ method was used to fix the infeasible solutions. The Performance of IBCSA-BJO
 has been evaluated over a set of benchmark problems and shown that it can be a 
 good alternative for the proposed state-of-the-art approaches.
 
+Keywords: Max clique problem; binary crow search algorithm, binary Jaya 
+optimizer, evolutionary operator; opposition-based learning; transfer functions
+
