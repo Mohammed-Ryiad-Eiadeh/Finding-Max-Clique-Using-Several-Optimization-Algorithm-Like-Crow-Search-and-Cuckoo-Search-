@@ -20,7 +20,7 @@ import static java.lang.System.out;
  * <li>the main class</li>
  * */
 public class Main {
-    public static void main(String ...args) {
+    public static void main(String[] args) {
         // read the dataset, display the graph,and construct the graph
         var graph = new Graph(DataSet.GetDataSet(1));
         graph.ShowGraph();
