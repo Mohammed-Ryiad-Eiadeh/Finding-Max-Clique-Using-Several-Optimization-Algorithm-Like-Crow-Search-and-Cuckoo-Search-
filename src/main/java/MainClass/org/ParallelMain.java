@@ -20,7 +20,7 @@ import java.util.stream.Stream;
 import static java.lang.System.out;
 
 public class ParallelMain {
-    public static void main(String ...a) throws InterruptedException, ExecutionException {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
         // read the dataset, display the graph,and construct the graph
         var graph = new Graph(DataSet.GetDataSet(19));
         graph.ShowGraph();
